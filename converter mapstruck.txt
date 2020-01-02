@@ -1,0 +1,17 @@
+package com.paypal.compliance.mapstruct.mapper;
+
+import com.paypal.common.SecurityContextBO;
+import com.paypal.compliance.mapstruct.custommapper.CommonCustomMappers;
+import com.paypal.platform.auth.securitycontext.SecurityContext;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
+
+@Mapper(uses = CommonCustomMappers.class)
+public interface SecurityContextMapper {
+
+	@Mappings({
+		@Mapping(target = "actor.tenantContextBO", source = "actor.tenantContext")
+	})
+	SecurityContextBO mapToSecurityContextBO(SecurityContext securityContext);
+}
